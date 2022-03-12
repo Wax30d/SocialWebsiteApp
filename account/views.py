@@ -7,6 +7,11 @@ from django.contrib import messages
 from .forms import LoginForm
 
 
+@login_required
+def dashboard(request):
+    return render(request, 'account/dashboard.html', {'section': 'dashboard'})
+
+
 def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
